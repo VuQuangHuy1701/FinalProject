@@ -1,0 +1,118 @@
+/* =======================
+   BASE (MOBILE FIRST)
+======================= */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #000;
+}
+
+/* Header + Footer */
+header, footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #eaeaea;
+}
+
+/* Main content */
+main {
+  padding: 10px;
+}
+
+/* Grid layout (mobile = 1 column) */
+.characters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+/* Figure styling */
+figure {
+  margin: 0;
+  padding: 10px;
+  border: 2px solid #ccc;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+/* Images responsive */
+img {
+  width: 100%;
+  height: auto;
+}
+
+/* =======================
+   TABLET (>= 772px)
+======================= */
+
+@media (min-width: 772px) {
+  .characters {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Make images circular */
+  figure {
+    border-radius: 50%;
+  }
+
+  /* Last figure spans 2 columns */
+  .characters figure:last-child {
+    grid-column: span 2;
+  }
+}
+
+/* =======================
+   DESKTOP (>= 992px)
+======================= */
+
+@media (min-width: 992px) {
+
+  /* Every 3rd figure spans 2 columns */
+  .characters figure:nth-child(3n) {
+    grid-column: span 2;
+  }
+
+  /* Remove circular shape */
+  figure {
+    border-radius: 0;
+  }
+}
+
+/* =======================
+   REDUCED MOTION
+======================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* =======================
+   DARK MODE
+======================= */
+
+@media (prefers-color-scheme: dark) {
+
+  body {
+    background-color: #121212;
+    color: #f5f5a0; /* light yellow */
+  }
+
+  figure {
+    background-color: #333;
+    color: #f5f5a0;
+    border: 2px solid #000;
+  }
+
+  header, footer {
+    background-color: #222;
+  }
+}
+
+figure:hover {
+  transform: scale(1.03);
+  transition: 0.3s;
+}
